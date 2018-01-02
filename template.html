@@ -1,0 +1,54 @@
+
+<script src="data.js"></script>
+<script src="Chart.bundle.min.js"></script>
+
+<div style="display: block; width: 500px; height: 300px;">
+<canvas id="lineChart" style="display: block; width: 500px; height: 300px;" width="500" height="300"></canvas>
+</div>
+
+<script>
+
+labels = [];
+for (i = 0; i < data.length; i++) {
+    labels.push(i+1);
+} 
+
+var config = {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Precio",
+                    fill: false,
+                    backgroundColor: '#3f3',
+                    borderColor: '#3f3',
+                    data: data,
+                }]
+            },
+            options: {
+                responsive: true,
+                title:{
+                    display:false,
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+
+                scales: {
+                    xAxes: [{
+                        display: true,
+                    }],
+                    yAxes: [{
+                        display: true,
+                    }]
+                }
+            }
+        };
+
+        window.onload = function() {
+            var ctx = document.getElementById("lineChart").getContext("2d");
+            var chartt = new Chart(ctx, config);
+        };
+
+</script>
