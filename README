@@ -1,0 +1,5 @@
+Needed modules installed locally:
+
+pip3 install beautifulsoup4 -t ./
+pip install requests -t ./
+
